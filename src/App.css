@@ -1,38 +1,249 @@
-.App {
+html,
+body {
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: Arial Black, sans-serif;
   text-align: center;
+  background: #000;
+  height: 200vh;
+  max-width: fit-content;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+.text {
+  position: absolute;
+  top: 50%; 
+  right: 50%;
+  transform: translate(50%,-50%);
+  text-transform: uppercase;
+  font-family: verdana;
+  font-size: 4em;
+  font-weight: 700;
+  color: #f5f5f5;
+  text-shadow: 1px 1px 1px #919191,
+      1px 2px 1px #919191,
+      1px 3px 1px #919191,
+      1px 4px 1px #919191,
+      1px 5px 1px #919191,
+      1px 6px 1px #919191,
+      1px 7px 1px #919191,
+      1px 8px 1px #919191,
+      1px 9px 1px #919191,
+      1px 10px 1px #919191,
+  1px 18px 6px rgba(16,16,16,0.4),
+  1px 22px 10px rgba(16,16,16,0.2),
+  1px 25px 35px rgba(16,16,16,0.2),
+  1px 30px 60px rgba(16,16,16,0.4);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.button-getstarted {
+  align-self: center;
+  background-color: #d1d1d12d;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(255, 255, 255, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #fffdfa;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.button-getstarted:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-getstarted:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+.content-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform 1s ease-out, opacity 1s ease-out 6s;
+}
+
+.content {
+  padding-top: 100vh; /* Adjust this value based on the height of your animations */
+}
+
+
+
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #080000;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: -5px -5px rgba(255,255,255,0.5);
+  color: rgb(255, 255, 255);
+
+  transform: rotateY(180deg);
+}
+
+
+
+
+/* .flip-card-back:before {
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+}
+.flip-card-back:before {
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  filter: blur(10px);
+}
+.flip-card-back:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.flip-card-back:before  {
+  background: inherit;
+}
+.flip-card-back:before {
+  background: inherit;
+} */
+
+
+
+
+/* CSS */
+.button-explore {
+ 
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  color: #3D3D3D;
+  background: #fff;
+  border:rgb(153, 255, 0);
+  box-shadow: 1px 1px 1px rgb(255, 255, 255);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-.App-link {
-  color: #61dafb;
+.button-explore:hover {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.video{
+  width: 100wh;
+  height: 60vh;
+  object-fit: cover;
 }
+
+
+
+
+.animation, .animation_layer {
+	height: 1400px;
+}
+
+.animation {
+  display:block;
+	position:relative;
+	z-index:100;
+}
+
+.animation_layer {
+	background-position: bottom center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width:100%;
+	position: absolute;
+  /* object-fit: cover; */
+}
+.animation_layer.parallax {
+	position: fixed;
+}
+
+#sky{
+  background-image: url("C:\Users\NANCY_SINGH\Documents\web develp\vihaan\my-project\src\assests\sky.jpeg");
+
+}
+
+#teaground{
+  background-image:url("C:\Users\NANCY_SINGH\Documents\web develp\vihaan\my-project\src\assests\teaground.png")
+   ;
+}
+#tea{
+  background-image: url("C:\Users\NANCY_SINGH\Documents\web develp\vihaan\my-project\src\assests\tea.png");
+}
+
+/* .back_button{
+  z-index: 10;
+} */

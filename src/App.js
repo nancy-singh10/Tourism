@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Main from "./components/Main";
+import { useState } from "react";
+import {Routes, Route} from "react-router-dom"
+import Home from "./components/Home"
+import Delhi from "./components/Delhi"
+import Manjnukatila from "./components/Manjukatila";
+import Mehrauli from "./components/Mehrauli";
 
-function App() {
+export default function App() {
+
+  const[loggedin,setloggedin]=useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <Navbar loggedin={loggedin}  setloggedin={setloggedin}></Navbar> */}
+      <Routes> 
+      <Route path='/' element={<Main  loggedin={loggedin}  setloggedin={setloggedin}/> }/>
+      <Route path="/home" element={<Home loggedin={loggedin} setloggedin={setloggedin} />} />
+      <Route path="/delhi" element={<Delhi/>}/>
+      <Route path="/manju" element={<Manjnukatila/>}/>
+      <Route path="/mehruli" element={<Mehrauli/>}/>
+      
+      </Routes>  
     </div>
   );
 }
-
-export default App;
